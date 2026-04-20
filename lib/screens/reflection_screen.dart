@@ -1,0 +1,163 @@
+import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
+import '../data/models/ambience_model.dart';
+import '../widgets/mood_selector.dart';
+import '../widgets/primary_button.dart';
+import 'journal_history_screen.dart';
+
+class ReflectionScreen extends StatefulWidget {
+  final Ambience ambience;
+
+  const ReflectionScreen({
+    super.key,
+    required this.ambience,
+  });
+
+  @override
+  State<ReflectionScreen> createState() => _ReflectionScreenState();
+}
+
+class _ReflectionScreenState extends State<ReflectionScreen> {
+  final TextEditingController _textController = TextEditingController();
+  String? selectedMood;
+
+  void _saveReflection() {
+    // In a real app, save to database
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Reflection saved'),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: AppTheme.accentMutedGreen,
+      ),
+    );
+    
+    // Navigate to journal history
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const JournalHistoryScreen(),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: AppTheme.calmGradient,
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(AppTheme.spacing24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Header
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () {
+                        Navigator.popUntil(context, (route) => route.isFirst);
+                      },
+                    ),
+                    const Spacer(),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.popUntil(context, (route) => route.isFirst);
+                      },
+                      child: const Text('Skip'),
+                    ),
+                  ],
+                ),
+                
+                const SizedBox(height: AppTheme.spacing32),
+                
+                // Prompt
+                Text(
+                  'What is gently present with you right now?',
+                  style: AppTheme.heading1.copyWith(
+                    fontSize: 28,
+                    height: 1.3,
+                  ),
+                ),
+                
+                const SizedBox(height: AppTheme.spacing8),
+                
+                Text(
+                  'After ${widget.ambience.title}',
+                  style: AppTheme.bodyMedium.copyWith(
+                    color: AppTheme.textTertiary,
+                  ),
+                ),
+                
+                const SizedBox(height: AppTheme.spacing32),
+                
+                // Text Input
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+                    boxShadow: AppTheme.softShadow,
+                  ),
+                  child: TextField(
+                    controller: _textController,
+                    maxLines: 8,
+                    decoration: InputDecoration(
+                      hintText: 'I notice...',
+                      hintStyle: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.textTertiary,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding: const EdgeInsets.all(AppTheme.spacing20),
+                    ),
+                    style: AppTheme.bodyLarge,
+                  ),
+                ),
+                
+                const SizedBox(height: AppTheme.spacing32),
+                
+                // Mood Selector
+                Text(
+                  'How do you feel?',
+                  style: AppTheme.heading3.copyWith(fontSize: 18),
+                ),
+                
+                const SizedBox(height: AppTheme.spacing12),
+                
+                MoodSelector(
+                  selectedMood: selectedMood,
+                  onMoodSelected: (mood) {
+                    setState(() {
+                      selectedMood = mood;
+                    });
+                  },
+                ),
+                
+                const SizedBox(height: AppTheme.spacing40),
+                
+                // Save Button
+                PrimaryButton(
+                  text: 'Save Reflection',
+                  onPressed: selectedMood != null && _textController.text.isNotEmpty
+                      ? _saveReflection
+                      : () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
