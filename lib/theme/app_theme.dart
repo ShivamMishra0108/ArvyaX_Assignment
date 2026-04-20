@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Premium Color Palette - Calm & Minimal
   static const Color primaryDeepBlue = Color(0xFF2E3A59);
   static const Color primaryIndigo = Color(0xFF4A5C7A);
   static const Color secondaryBeige = Color(0xFFF5F1ED);
@@ -12,7 +11,6 @@ class AppTheme {
   static const Color textSecondary = Color(0xFF6B7280);
   static const Color textTertiary = Color(0xFF9CA3AF);
   
-  // Gradient colors
   static const LinearGradient primaryGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -31,8 +29,7 @@ class AppTheme {
     colors: [Color(0xFF3D4E6F), Color(0xFF2E3A59), Color(0xFF1A2332)],
   );
   
-  // Typography
-  static const String fontFamily = 'SF Pro Display'; // Fallback to system
+  static const String fontFamily = 'SF Pro Display'; 
   
   static const TextStyle heading1 = TextStyle(
     fontSize: 32,
@@ -87,7 +84,6 @@ class AppTheme {
     color: textTertiary,
   );
   
-  // Spacing (8pt grid system)
   static const double spacing4 = 4.0;
   static const double spacing8 = 8.0;
   static const double spacing12 = 12.0;
@@ -98,14 +94,12 @@ class AppTheme {
   static const double spacing40 = 40.0;
   static const double spacing48 = 48.0;
   
-  // Border radius
   static const double radiusSmall = 8.0;
   static const double radiusMedium = 12.0;
   static const double radiusLarge = 16.0;
   static const double radiusXLarge = 20.0;
   static const double radiusPill = 100.0;
   
-  // Shadows
   static List<BoxShadow> softShadow = [
     BoxShadow(
       color: Colors.black.withOpacity(0.04),
@@ -132,7 +126,6 @@ class AppTheme {
     ),
   ];
   
-  // Theme Data
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,

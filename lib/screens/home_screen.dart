@@ -91,7 +91,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 🔝 Header
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
                   child: Row(
@@ -130,7 +129,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                 ),
 
-                // 🔍 Search
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: ClipRRect(
@@ -169,7 +167,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
                 const SizedBox(height: 20),
 
-                // 🎯 Filters
                 SizedBox(
                   height: 44,
                   child: ListView.separated(
@@ -211,7 +208,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
                 const SizedBox(height: 20),
 
-                // 📦 Grid
                 Expanded(
                   child: filtered.isEmpty
                       ? _buildEmptyState()

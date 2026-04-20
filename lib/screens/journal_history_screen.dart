@@ -107,7 +107,6 @@ class _JournalEntryCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Date and Mood
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -139,7 +138,6 @@ class _JournalEntryCard extends StatelessWidget {
             
             const SizedBox(height: AppTheme.spacing8),
             
-            // Ambience Title
             Text(
               entry.ambienceTitle,
               style: AppTheme.heading3.copyWith(fontSize: 16),
@@ -147,7 +145,6 @@ class _JournalEntryCard extends StatelessWidget {
             
             const SizedBox(height: AppTheme.spacing8),
             
-            // Preview Text
             Text(
               entry.text,
               style: AppTheme.bodyMedium,

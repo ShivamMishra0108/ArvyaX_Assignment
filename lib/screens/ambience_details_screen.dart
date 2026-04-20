@@ -19,7 +19,6 @@ class AmbienceDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Content
           CustomScrollView(
             slivers: [
               
@@ -52,14 +51,12 @@ class AmbienceDetailsScreen extends StatelessWidget {
                 ),
               ),
               
-              // Details
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.all(AppTheme.spacing24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Title and Tag
                       Row(
                         children: [
                           Expanded(
@@ -91,7 +88,6 @@ class AmbienceDetailsScreen extends StatelessWidget {
                       
                       const SizedBox(height: AppTheme.spacing8),
                       
-                      // Duration
                       Row(
                         children: [
                           Icon(
@@ -109,7 +105,6 @@ class AmbienceDetailsScreen extends StatelessWidget {
                       
                       const SizedBox(height: AppTheme.spacing24),
                       
-                      // Description
                       Text(
                         ambience.description,
                         style: AppTheme.bodyLarge.copyWith(
@@ -120,7 +115,6 @@ class AmbienceDetailsScreen extends StatelessWidget {
                       
                       const SizedBox(height: AppTheme.spacing32),
                       
-                      // Sensory Elements
                       Text(
                         'Sensory Elements',
                         style: AppTheme.heading3.copyWith(fontSize: 18),
@@ -136,7 +130,7 @@ class AmbienceDetailsScreen extends StatelessWidget {
                             .toList(),
                       ),
                       
-                      const SizedBox(height: 120), // Space for button
+                      const SizedBox(height: 120), 
                     ],
                   ),
                 ),
@@ -144,7 +138,6 @@ class AmbienceDetailsScreen extends StatelessWidget {
             ],
           ),
           
-          // Fixed Bottom Button
           Positioned(
             left: 0,
             right: 0,

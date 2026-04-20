@@ -22,7 +22,6 @@ class JournalDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Date
             Text(
               DateFormat('MMMM d, y').format(entry.timestamp),
               style: AppTheme.bodyMedium.copyWith(
@@ -39,7 +38,6 @@ class JournalDetailScreen extends StatelessWidget {
             
             const SizedBox(height: AppTheme.spacing24),
             
-            // Ambience Title
             Text(
               entry.ambienceTitle,
               style: AppTheme.heading2,
@@ -47,7 +45,6 @@ class JournalDetailScreen extends StatelessWidget {
             
             const SizedBox(height: AppTheme.spacing12),
             
-            // Mood
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: AppTheme.spacing16,
@@ -68,7 +65,6 @@ class JournalDetailScreen extends StatelessWidget {
             
             const SizedBox(height: AppTheme.spacing32),
             
-            // Divider
             Container(
               height: 1,
               color: AppTheme.textTertiary.withOpacity(0.1),
@@ -76,7 +72,6 @@ class JournalDetailScreen extends StatelessWidget {
             
             const SizedBox(height: AppTheme.spacing32),
             
-            // Full Text
             Text(
               entry.text,
               style: AppTheme.bodyLarge.copyWith(

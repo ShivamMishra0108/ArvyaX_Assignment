@@ -121,7 +121,6 @@ class _SessionPlayerScreenState
         child: SafeArea(
           child: Stack(
             children: [
-              // 🌿 Breathing animation
               Center(
                 child: AnimatedBuilder(
                   animation: _breathingController,
@@ -147,7 +146,6 @@ class _SessionPlayerScreenState
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // 🔝 Top
                   Padding(
                     padding: const EdgeInsets.all(AppTheme.spacing20),
                     child: Column(
@@ -179,7 +177,6 @@ class _SessionPlayerScreenState
                     ),
                   ),
 
-                  // ▶️ Controls
                   Column(
                     children: [
                       IconButton(
@@ -204,7 +201,6 @@ class _SessionPlayerScreenState
                     ],
                   ),
 
-                  // 🔻 Bottom
                   Padding(
                     padding: const EdgeInsets.all(AppTheme.spacing24),
                     child: Column(

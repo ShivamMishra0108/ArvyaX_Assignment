@@ -22,7 +22,6 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
   String? selectedMood;
 
   void _saveReflection() {
-    // In a real app, save to database
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Reflection saved'),
@@ -31,7 +30,6 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
       ),
     );
     
-    // Navigate to journal history
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -59,7 +57,6 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header
                 Row(
                   children: [
                     IconButton(
@@ -80,7 +77,6 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                 
                 const SizedBox(height: AppTheme.spacing32),
                 
-                // Prompt
                 Text(
                   'What is gently present with you right now?',
                   style: AppTheme.heading1.copyWith(
@@ -100,7 +96,6 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                 
                 const SizedBox(height: AppTheme.spacing32),
                 
-                // Text Input
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -127,7 +122,6 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                 
                 const SizedBox(height: AppTheme.spacing32),
                 
-                // Mood Selector
                 Text(
                   'How do you feel?',
                   style: AppTheme.heading3.copyWith(fontSize: 18),
@@ -146,7 +140,6 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                 
                 const SizedBox(height: AppTheme.spacing40),
                 
-                // Save Button
                 PrimaryButton(
                   text: 'Save Reflection',
                   onPressed: selectedMood != null && _textController.text.isNotEmpty

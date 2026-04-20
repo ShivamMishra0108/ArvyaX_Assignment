@@ -49,7 +49,7 @@ class MiniPlayer extends ConsumerWidget {
         margin: const EdgeInsets.all(12),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
                 colors: [
                    Color(0xFF1976D2),
                   Color(0xFF0B1F3A),

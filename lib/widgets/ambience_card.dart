@@ -25,7 +25,6 @@ class AmbienceCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
           child: Stack(
             children: [
-              // 🖼️ Background Image
               Positioned.fill(
                 child: Image.network(
                   ambience.imageUrl,
@@ -33,7 +32,6 @@ class AmbienceCard extends StatelessWidget {
                 ),
               ),
 
-              // 🌑 Gradient Overlay (important for readability)
               Positioned.fill(
                 child: Container(
                   decoration: BoxDecoration(
@@ -49,7 +47,6 @@ class AmbienceCard extends StatelessWidget {
                 ),
               ),
 
-              // ▶️ Play Button (top right)
               Positioned(
                 top: 10,
                 right: 10,
@@ -67,7 +64,6 @@ class AmbienceCard extends StatelessWidget {
                 ),
               ),
 
-              // 📄 Bottom Content
               Positioned(
                 left: 12,
                 right: 12,
@@ -75,7 +71,6 @@ class AmbienceCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Title
                     Text(
                       ambience.title,
                       style: const TextStyle(
@@ -91,7 +86,6 @@ class AmbienceCard extends StatelessWidget {
 
                     Row(
                       children: [
-                        // Tag Chip
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 8,
@@ -113,7 +107,7 @@ class AmbienceCard extends StatelessWidget {
 
                         const SizedBox(width: 8),
 
-                        // Duration
+                      
                         Text(
                           ambience.duration,
                           style: const TextStyle(

@@ -14,23 +14,18 @@ void main() async {
 
   await Hive.initFlutter();
 
-  // ✅ Register adapters
   Hive.registerAdapter(AmbienceAdapter());
   Hive.registerAdapter(JournalEntryAdapter());
 
-  // ✅ Open boxes
   final ambienceBox = await Hive.openBox<Ambience>('aetherBox');
   await Hive.openBox<JournalEntry>('journalBox');
 
-  // 🔥 NEW: Player/session box
   await Hive.openBox('playerBox');
 
-  // ✅ Seed ambience data
   if (ambienceBox.isEmpty) {
     ambienceBox.addAll(AmbienceData.ambiences);
   }
 
-  // ✅ Status bar
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -39,7 +34,7 @@ void main() async {
   );
 
   runApp(
-    const ProviderScope( // 🔥 REQUIRED
+    const ProviderScope( 
       child: AetherApp(),
     ),
   );
