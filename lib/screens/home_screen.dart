@@ -196,9 +196,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 ? Colors.blueAccent
                                 : Colors.white.withOpacity(0.1),
                           ),
-                          child: Text(
-                            category,
-                            style: const TextStyle(color: Colors.white),
+                          child: Center(
+                            child: Text(
+                              category,
+                              style: const TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
                       );

@@ -1,4 +1,3 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'journal_entry.dart';
 
@@ -25,7 +24,7 @@ class JournalEntryAdapter extends TypeAdapter<JournalEntry> {
   @override
   void write(BinaryWriter writer, JournalEntry obj) {
     writer
-      ..writeByte(5) // total fields
+      ..writeByte(5) 
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)

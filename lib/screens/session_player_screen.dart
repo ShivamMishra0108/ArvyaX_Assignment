@@ -15,8 +15,7 @@ class SessionPlayerScreen extends ConsumerStatefulWidget {
       _SessionPlayerScreenState();
 }
 
-class _SessionPlayerScreenState
-    extends ConsumerState<SessionPlayerScreen>
+class _SessionPlayerScreenState extends ConsumerState<SessionPlayerScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _breathingController;
 
@@ -49,7 +48,7 @@ class _SessionPlayerScreenState
           title: widget.ambience.title,
           audio: widget.ambience.audio,
           durationSeconds: activeDuration,
-          image: widget.ambience.imageUrl
+          image: widget.ambience.imageUrl,
         );
       }
     });
@@ -87,7 +86,7 @@ class _SessionPlayerScreenState
         title: widget.ambience.title,
         audio: widget.ambience.audio,
         durationSeconds: selectedDuration,
-        image: widget.ambience.imageUrl
+        image: widget.ambience.imageUrl,
       );
     }
   }
@@ -115,8 +114,13 @@ class _SessionPlayerScreenState
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppTheme.sessionGradient,
+        height: double.infinity,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(player.image!),
+            fit: BoxFit.cover,
+          ),
         ),
         child: SafeArea(
           child: Stack(
@@ -151,8 +155,7 @@ class _SessionPlayerScreenState
                     child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
                               icon: const Icon(
@@ -205,18 +208,18 @@ class _SessionPlayerScreenState
                     padding: const EdgeInsets.all(AppTheme.spacing24),
                     child: Column(
                       children: [
-                        Slider(
-                          value: progress,
-                          onChanged: controller.seek,
-                        ),
+                        Slider(value: progress, onChanged: controller.seek),
                         Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(_format(player.position),
-                                style: const TextStyle(color: Colors.white)),
-                            Text(_format(player.duration),
-                                style: const TextStyle(color: Colors.white)),
+                            Text(
+                              _format(player.position),
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              _format(player.duration),
+                              style: const TextStyle(color: Colors.white),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 20),
@@ -226,14 +229,15 @@ class _SessionPlayerScreenState
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => ReflectionScreen(
-                                  ambience: widget.ambience,
-                                ),
+                                builder: (_) =>
+                                    ReflectionScreen(ambience: widget.ambience),
                               ),
                             );
                           },
-                          child: const Text("End Session",
-                              style: TextStyle(color: Colors.white70)),
+                          child: const Text(
+                            "End Session",
+                            style: TextStyle(color: Colors.white70),
+                          ),
                         ),
                       ],
                     ),
