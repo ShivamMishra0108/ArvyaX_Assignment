@@ -158,9 +158,10 @@ class _SessionPlayerScreenState extends ConsumerState<SessionPlayerScreen>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
+                              color: Colors.white,
                               icon: const Icon(
                                 Icons.keyboard_arrow_down,
-                                color: Colors.white70,
+                                color: Colors.grey,
                               ),
                               onPressed: () {
                                 Navigator.pop(context);
@@ -170,10 +171,29 @@ class _SessionPlayerScreenState extends ConsumerState<SessionPlayerScreen>
                           ],
                         ),
                         const SizedBox(height: AppTheme.spacing40),
-                        Text(
-                          player.title ?? widget.ambience.title,
-                          style: AppTheme.heading2.copyWith(
-                            color: Colors.white,
+
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white.withOpacity(0.9),
+                              width: 3,
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            player.title ?? widget.ambience.title,
+                            textAlign: TextAlign.center,
+                            style: AppTheme.heading2.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black.withOpacity(0.7),
+                                  offset: const Offset(1, 2),
+                                  blurRadius: 4,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -223,7 +243,19 @@ class _SessionPlayerScreenState extends ConsumerState<SessionPlayerScreen>
                           ],
                         ),
                         const SizedBox(height: 20),
+                        const SizedBox(height: 20),
+
                         TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 12,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
                           onPressed: () {
                             controller.stop();
                             Navigator.pushReplacement(
@@ -236,7 +268,10 @@ class _SessionPlayerScreenState extends ConsumerState<SessionPlayerScreen>
                           },
                           child: const Text(
                             "End Session",
-                            style: TextStyle(color: Colors.white70),
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ],

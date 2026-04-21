@@ -8,10 +8,7 @@ import 'journal_history_screen.dart';
 class ReflectionScreen extends StatefulWidget {
   final Ambience ambience;
 
-  const ReflectionScreen({
-    super.key,
-    required this.ambience,
-  });
+  const ReflectionScreen({super.key, required this.ambience});
 
   @override
   State<ReflectionScreen> createState() => _ReflectionScreenState();
@@ -29,12 +26,10 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
         backgroundColor: AppTheme.accentMutedGreen,
       ),
     );
-    
+
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
-        builder: (context) => const JournalHistoryScreen(),
-      ),
+      MaterialPageRoute(builder: (context) => const JournalHistoryScreen()),
     );
   }
 
@@ -48,8 +43,14 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
-          gradient: AppTheme.calmGradient,
+          gradient: LinearGradient(
+            colors: [Color(0xFF0B1F3A), Color(0xFF0E3A6D), Color(0xFF1976D2)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
         ),
         child: SafeArea(
           child: SingleChildScrollView(
@@ -60,7 +61,7 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                 Row(
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.close),
+                      icon: const Icon(Icons.close,color: Colors.white,),
                       onPressed: () {
                         Navigator.popUntil(context, (route) => route.isFirst);
                       },
@@ -70,35 +71,32 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                       onPressed: () {
                         Navigator.popUntil(context, (route) => route.isFirst);
                       },
-                      child: const Text('Skip'),
+                      child: const Text('Skip',style: TextStyle(color: Colors.white),),
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: AppTheme.spacing32),
-                
+
                 Text(
                   'What is gently present with you right now?',
-                  style: AppTheme.heading1.copyWith(
-                    fontSize: 28,
-                    height: 1.3,
-                  ),
+                  style: AppTheme.heading1.copyWith(fontSize: 28, height: 1.3,color: Colors.white),
                 ),
-                
+
                 const SizedBox(height: AppTheme.spacing8),
-                
+
                 Text(
                   'After ${widget.ambience.title}',
                   style: AppTheme.bodyMedium.copyWith(
                     color: AppTheme.textTertiary,
                   ),
                 ),
-                
+
                 const SizedBox(height: AppTheme.spacing32),
-                
+
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
                     boxShadow: AppTheme.softShadow,
                   ),
@@ -111,7 +109,9 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                         color: AppTheme.textTertiary,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+                        borderRadius: BorderRadius.circular(
+                          AppTheme.radiusLarge,
+                        ),
                         borderSide: BorderSide.none,
                       ),
                       contentPadding: const EdgeInsets.all(AppTheme.spacing20),
@@ -119,16 +119,16 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                     style: AppTheme.bodyLarge,
                   ),
                 ),
-                
+
                 const SizedBox(height: AppTheme.spacing32),
-                
+
                 Text(
                   'How do you feel?',
                   style: AppTheme.heading3.copyWith(fontSize: 18),
                 ),
-                
+
                 const SizedBox(height: AppTheme.spacing12),
-                
+
                 MoodSelector(
                   selectedMood: selectedMood,
                   onMoodSelected: (mood) {
@@ -137,12 +137,13 @@ class _ReflectionScreenState extends State<ReflectionScreen> {
                     });
                   },
                 ),
-                
+
                 const SizedBox(height: AppTheme.spacing40),
-                
+
                 PrimaryButton(
                   text: 'Save Reflection',
-                  onPressed: selectedMood != null && _textController.text.isNotEmpty
+                  onPressed:
+                      selectedMood != null && _textController.text.isNotEmpty
                       ? _saveReflection
                       : () {},
                 ),

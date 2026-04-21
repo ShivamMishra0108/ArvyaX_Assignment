@@ -17,9 +17,12 @@ class JournalDetailScreen extends StatelessWidget {
       extendBodyBehindAppBar: true,
 
       appBar: AppBar(
-        title: const Text(
-          'Reflection',
-          style: TextStyle(color: Colors.white),
+        title: const Text('Reflection', style: TextStyle(color: Colors.white)),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.popUntil(context, (route) => route.isFirst);
+          },
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -31,12 +34,12 @@ class JournalDetailScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF1976D2),
-              Color(0xFF64B5F6), 
-              Color(0xFFE3F2FD), 
+             Color(0xFF0B1F3A),
+                  Color.fromARGB(255, 9, 57, 111),
+                  Color(0xFF1976D2), 
             ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
 
